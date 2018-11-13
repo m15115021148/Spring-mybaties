@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/index.css" />
+		<script type="text/javascript" src="../../../js/config.js" ></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--内容区-->
+			<div class="white-bj">
+				<div class="me-content-inner me-address-inner">
+					<a href="me_address_edit.html" class="set-content-item">
+						<div class="me-content-left">
+							<img class="me-content-pic" src="../../../images/icon_wode_shezhi_xinzengdizhi.png">
+							<p class="me-content-name dark-gray fontsize14">新增地址</p>
+						</div>
+						<span class="me-content-right mui-icon mui-icon-arrowright fontsize16 light-gray">
+								</span>
+					</a>
+				</div>
+			</div>
+			<ul id="OA_task_1" class="mui-table-view ads-layout">
+				<p class="fontsize12 light-gray ads-common">常用地址</p>
+				<li class="mui-table-view-cell ads-item">
+					<div class="mui-slider-right mui-disabled">
+						<a class="mui-btn mui-btn-red address-delete address-btn-red" href="#"><img class="ads-pic" src="../../../images/icon_wode_shanchudizhi.png">
+						</a>
+					</div>
+					<div class="mui-slider-handle">
+						<div class="ads-left">
+							<p class="ads-name fontsize14 dark-gray">
+								田程丽
+								<span class="fontsize12 gray ads-tel">18390985134</span>
+							</p>
+							<p class="fontsize12 light-gray ads-location">湖南省长沙市岳麓区王龙路岳麓大道口芯诚科技园</p>
+						</div>
+						<a href="me_address_edit.html" class="ads-pic-adit"><img class="ads-pic" src="../../../images/icon_wode_bianjidizhi.png"> </a>
+					</div>
+				</li>
+			</ul>
+			<!--缺省页-->
+			<div class="default-pic-layout" style="display:none;">
+				<p class="default-pager-text">您还没有过地址哦</p> <br />
+				<img class="default-pic" src="../../../images/icon_wudizhi.png" />
+			</div>
+			<!--弹框-->
+			<div class="mui-popup mui-popup-in" style="display: none;" v-show="isShow">
+				<div class="mui-popup-inner">
+					<div class="mui-popup-title fontsize16 black">删除地址</div>
+					<div class="mui-popup-text fontsize14 dark-gray ads-del-info">确认删除该条地址？</div>
+				</div>
+				<div class="mui-popup-buttons">
+					<span class="mui-popup-button dark-gray fontsize14" v-on:click="runt()">取消</span>
+					<span class="mui-popup-button dark-orage fontsize14">确认</span>
+				</div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" style="display: none;" v-show="isShow"></div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

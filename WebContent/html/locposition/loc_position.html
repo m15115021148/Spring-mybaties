@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../../js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--搜索-->
+			<div class="city-search-bj">
+				<div class="mui-indexed-list-search mui-input-row mui-search city-search city-input-row">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input default-search-input" placeholder="搜索">
+				</div>
+				<p class="city-search-button">搜索</p>
+			</div>
+			<!--内容区-->
+			<div class="city-main">
+				<a href="#">
+					<div class="city-pic-layout white-bj">
+						<p class="fontsize14 light-gray">
+							<span class="city-loc-pic"><img class="city-loc-pic-size"
+							src="../../images/icon_shouye_dingwei.png" /> </span>点击定位当前位置
+						</p>
+					</div>
+				</a>
+				<p class="fontsize12 light-gray near-ads">
+					<span><img class="near-ads-pic" src="../../images/icon_shouye_fujindizhi.png"></span>附近地址
+				</p>
+				<ul class="near-ads-layout">
+					<li class="near-ads-item fontsize14 gray">芯诚科技园4栋</li>
+				</ul>
+			</div>
+		</div>
+
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

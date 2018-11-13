@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>优惠</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--底部标签栏-->
+			<nav class="mui-bar mui-bar-tab bar-tab">
+				<a class="mui-tab-item tab-home-normal" href="../../index.html">
+					<span class="tab-name">首页</span>
+				</a>
+				<a class="mui-tab-item  tab-pref-normal" href="../../html/pref/pref.html">
+					<span class="tab-name">优惠</span>
+				</a>
+				<a class="mui-tab-item tab-me-pressed" href="#">
+					<span class="tab-name-active">我的</span>
+				</a>
+			</nav>
+			<div class="main">
+				<!--头部-->
+				<div class="me-head">
+					<div class="me-head-pic">
+						<img src="../../images/cbd.jpg" class="pic" />
+					</div>
+					<p class="fontsize14 white me-head-nickname ellipsis">感冒还没好</p>
+				</div>
+				<div class="me-inner1">
+					<ul>
+						<li class="me-item">
+							<a href="../me/order/me_order.html" class="me-href">
+								<div class="me-item-layout">
+									<div class="me-item-left">
+										<img class="me-item-pic" src="../../images/icon_wode_wodedingdan.png" />
+										<p class="fontsize14 dark-gray me-item-name">我的订单</p>
+									</div>
+									<div class="me-item-right">
+										<span class="mui-icon mui-icon-arrowright rightjt"></span>
+									</div>
+								</div>
+							</a>
+							<ul class="me-item-child-layout">
+								<li class="me-item-child">
+									<a href="../me/order/me_order.html" class="me-href"><img class="me-item-child-pic" src="../../images/icon_wode_daifukuan.png" />
+										<span class="mui-badge badge">45894</span>
+										<p class="fontsize12 gray">待付款</p>
+									</a>
+								</li>
+								<li class="me-item-child">
+									<a href="../me/order/me_order.html" class="me-href"><img class="me-item-child-pic" src="../../images/icon_wode_daishouhuo.png" />
+										<span class="mui-badge badge">4</span>
+										<p class="fontsize12 gray">待收货</p>
+									</a>
+								</li>
+								<li class="me-item-child">
+									<a href="../me/order/me_order.html" class="me-href"><img class="me-item-child-pic" src="../../images/icon_wode_yiwancheng.png" />
+										<p class="fontsize12 gray">已完成</p>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="me-item me-item-two">
+							<ul>
+								<li class="me-item-child1">
+									<a href="../me/seat/me_seat.html"  class="me-href">
+										<div class="me-item-left">
+											<img class="me-item-pic" src="../../images/icon_wode_wodeshichi.png" />
+											<p class="fontsize14 dark-gray me-item-name">我的试吃</p>
+										</div>
+										<div class="me-item-right">
+											<span class="mui-icon mui-icon-arrowright rightjt"></span>
+										</div>
+									</a>
+								</li>
+
+								<li class="me-item-child1">
+									<a href="../me/car/me_car.html"  class="me-href"> 
+										<div class="me-item-left">
+											<img class="me-item-pic" src="../../images/icon_wode_wodegouwuche.png" />
+											<p class="fontsize14 dark-gray me-item-name">购物车</p>
+										</div>
+										<div class="me-item-right">
+											<span class="mui-icon mui-icon-arrowright rightjt"></span>
+										</div>
+									</a>
+								</li>
+
+								<li class="me-item-child1">
+									<a href="../me/activity/me_activity.html"  class="me-href">
+										<div class="me-item-left">
+											<img class="me-item-pic" src="../../images/icon_wode_wodihuodong.png" />
+											<p class="fontsize14 dark-gray me-item-name">我的活动</p>
+										</div>
+										<div class="me-item-right">
+											<span class="mui-icon mui-icon-arrowright rightjt"></span>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="me-item me-item-two">
+							<ul>
+								<li class="me-item-child1">
+									<a href="../me/address/me_address.html"  class="me-href">
+										<div class="me-item-left">
+											<img class="me-item-pic" src="../../images/icon_wode_shouhuodizhi.png" />
+											<p class="fontsize14 dark-gray me-item-name">收货地址</p>
+										</div>
+										<div class="me-item-right">
+											<span class="mui-icon mui-icon-arrowright rightjt"></span>
+										</div>
+									</a>
+								</li>
+
+								<li class="me-item-child1">
+									<a href="../me/setting/setting.html"  class="me-href">
+										<div class="me-item-left">
+											<img class="me-item-pic me-set" src="../../images/icon_wode_shezhi.png" />
+											<p class="fontsize14 dark-gray me-item-name">设置</p>
+										</div>
+										<div class="me-item-right">
+											<span class="mui-icon mui-icon-arrowright rightjt"></span>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//如果只是手机版，解决导航a标签不能跳转页面可以
+			mui('body').on('tap', 'a', function() {
+				window.top.location = this.href;
+			});
+			//如果还有电脑版的话，解决导航a标签不能跳转页面就要用
+			mui('body').on('click', 'a', function() {
+				window.top.location = this.href;
+			});
+		</script>
+	</body>
+
+</html>

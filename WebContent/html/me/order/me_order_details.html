@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../../js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--下单信息-->
+			<div class="pay-order-top">
+				<div class="pay-order-top-each">
+					<p class="pay-order-top-left light-gray fontsize12">订单状态</p>
+					<p class="pay-order-top-right borderbottom">
+						<span class="pay-order-top-right-state gray fontsize12">已过期</span>
+						<span class="pay-order-top-right-time dark-orage fontsize12"><img src="../../../images/icon_wode_shijian.png" />12:10 </span>
+					</p>
+				</div>
+				<div class="pay-order-top-each borderbottom">
+					<p class="pay-order-top-left light-gray fontsize12">收货地址</p>
+					<div class="pay-order-top-right">
+						<p class="gray fontsize12">
+							田程丽 &nbsp;&nbsp;&nbsp;&nbsp;<span class="dark-orage">18501449900</span>
+						</p>
+						<p class="gray fontsize12 pay-order-top-right-address">湖南省岳麓区新城科技园</p>
+					</div>
+				</div>
+				<div class="pay-order-top-each">
+					<p class="pay-order-top-left light-gray fontsize12">备注</p>
+					<p class="pay-order-top-right light-gray fontsize12">544646464</p>
+				</div>
+			</div>
+
+			<!--商家商品信息-->
+			<div class="car-shop-info">
+				<ul class="notice-pay-order-main">
+					<li class="notice-pay-order-main-each">
+						<a href="#" class="notice-pay-order-main-a">
+							<div class="page9-pic">
+								<img class="pic" src="../../../images/banner3.jpg">
+							</div>
+							<p class="page9-name gray fontsize12">火鸡</p>
+							<p class="page9-money dark-orage fontsize12">
+								￥<span class="fontsize14">300</span>
+							</p>
+							<p class="page9-num fontsize12 light-gray">x&nbsp;20</p>
+						</a>
+					</li>
+				</ul>
+
+				<div class="notice-pay-order-information-top">
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-left light-gray fontsize12">订单编号</span>
+						<span class="gray fontsize12">11664674941313131</span>
+					</p>
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-left light-gray fontsize12">下单时间</span>
+						<span class="gray fontsize12">2017-6-26 17:20:01</span>
+					</p>
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-left light-gray fontsize12">完成时间</span>
+						<span class="gray fontsize12">2017-6-26 17:20:01</span>
+					</p>
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-left light-gray fontsize12">支付方式</span>
+						<span class="gray fontsize12">微信支付</span>
+					</p>
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-left light-gray fontsize12">配送方式</span>
+						<span class="gray fontsize12">平台配送</span>
+					</p>
+				</div>
+
+			</div>
+			<!--订单信息-->
+			<div class="notice-pay-order-information">
+
+				<!-- 总订单信息   -->
+				<div class="notice-pay-order-information-bot">
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-bot-left dark-orage fontsize12">配送费</span>
+						<span class="notice-pay-order-information-bot-right gray fontsize12">￥6</span>
+					</p>
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-bot-left dark-orage fontsize12">总金额</span>
+						<span class="notice-pay-order-information-bot-right gray fontsize12">￥100</span>
+					</p>
+					<p class="me-order-details-info">
+						<span class="notice-pay-order-information-bot-left dark-orage fontsize12">优惠</span>
+						<span class="notice-pay-order-information-bot-right gray fontsize12">￥20</span>
+					</p>
+					<p class="notice-pay-order-information-bot-total dark-gray fontsize14">
+						实付：<span class="dark-orage fontsize15">￥12</span>
+					</p>
+				</div>
+
+			</div>
+			<!--立即支付、联系客服按钮-->
+			<div class="car-shop-pay">
+				<button class="big-btn white fontsize14">立即支付</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

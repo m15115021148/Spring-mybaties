@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>优惠</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--底部标签栏-->
+			<nav class="mui-bar mui-bar-tab bar-tab">
+				<a class="mui-tab-item tab-home-normal" href="../../index.html">
+					<span class="tab-name">首页</span>
+				</a>
+				<a class="mui-tab-item  tab-pref-pressed" href="#">
+					<span class="tab-name-active">优惠</span>
+				</a>
+				<a class="mui-tab-item tab-me-normal" href="../me/me.html">
+					<span class="tab-name">我的</span>
+				</a>
+			</nav>
+			<div class="main">
+				<ul>
+					<li class="pref-pic">
+						<img class="pic" src="../../images/icon_youhui_choujiang.jpg" />
+					</li>
+					<li class="pref-pic">
+						<img class="pic" src="../../images/icon_youhui_kanjia.jpg" />
+					</li>
+					<li class="pref-pic">
+						<img class="pic" src="../../images/icon_youhui_shichi.png" />
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			//如果只是手机版，解决导航a标签不能跳转页面可以
+			mui('body').on('tap', 'a', function() {
+				window.top.location = this.href;
+			});
+			//如果还有电脑版的话，解决导航a标签不能跳转页面就要用
+			mui('body').on('click', 'a', function() {
+				window.top.location = this.href;
+			});
+		</script>
+	</body>
+
+</html>

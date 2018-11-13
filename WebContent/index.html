@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页</title>
+
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--底部标签栏-->
+			<nav class="mui-bar mui-bar-tab bar-tab">
+				<a class="mui-tab-item tab-home-pressed" href="#">
+					<span class="tab-name-active">首页</span>
+				</a>
+				<a class="mui-tab-item tab-pref-normal" href="html/pref/pref.html">
+					<span class="tab-name">优惠</span>
+				</a>
+				<a class="mui-tab-item tab-me-normal" href="html/me/me.html">
+					<span class="tab-name">我的</span>
+				</a>
+			</nav>
+			<div class="main">
+				<!--轮播图-->
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/icon_shouye_bga.png">
+							</a>
+						</div>
+						<!-- 第一张 -->
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/icon_shouye_bga.png">
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/icon_shouye_bga.png">
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active index-indicator"></div>
+					</div>
+				</div>
+				<!--选项卡菜单-->
+				<div class="index-option-inner">
+					<ul class="index-option-layout">
+						<li class="index-option-item">
+							<a href="#indexitem">
+								<div class="index-option-item-pic"><img class="pic" src="images/icon_shouye_tua.jpg"></div>
+								<p class="index-option-item-text">精选鲜肉</p>
+							</a>
+						</li>
+						<li class="index-option-item">
+							<a href="#indexitem">
+								<div class="index-option-item-pic"><img class="pic" src="images/icon_shouye_tub.jpg"></div>
+								<p class="index-option-item-text">新鲜蔬菜</p>
+							</a>
+						</li>
+						<li class="index-option-item">
+							<a href="#indexitem">
+								<div class="index-option-item-pic"><img class="pic" src="images/icon_shouye_tuc.jpg"></div>
+								<p class="index-option-item-text">精品零食</p>
+							</a>
+						</li>
+						<li class="index-option-item">
+							<a href="#indexitem">
+								<div class="index-option-item-pic"><img class="pic" src="images/icon_shouye_tud.jpg"></div>
+								<p class="index-option-item-text">正品海鲜</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--精品优选-->
+				<div class="index-preferred-inner">
+					<div class="index-preferred-layout">
+						<p class="index-preferred-title">精品优选</p>
+					</div>
+					<div class="index-preferred-slide">
+						<div class="index-preferred-content" style="transform: translateX(36px) translateY(0px) translateZ(-500px);">
+							<div class="index-preferred-content-pic">
+								<img class="pic" src="images/cbd.jpg" />
+							</div>
+							<div class="index-preferred-content-left">
+								<p class="index-preferred-nickname">小资坚果优选内蒙草原巴木旦</p>
+								<p class="index-preferred-price">暑期价<span class="dark-orage fontsize12">￥99</span></p>
+								<p class="fontsize10 light-gray"><del>原价￥199</del></p>
+								<a href="html/home/shop_details.html"><button class="index-preferred-eat">免费试吃</button></a>
+								<a href="html/home/shop_result.html"><button class="index-preferred-pay">立即购买</button></a>
+							</div>
+
+						</div>
+						<div class="index-preferred-content" style="transform: translateX(18px) translateY(0px) translateZ(-250px);">
+							<div class="index-preferred-content-pic">
+								<img class="pic" src="images/cbd.jpg" />
+							</div>
+							<div class="index-preferred-content-left">
+								<p class="index-preferred-nickname">小资坚果优选内蒙草原巴木旦</p>
+								<p class="index-preferred-price">暑期价<span class="dark-orage fontsize12">￥99</span></p>
+								<p class="fontsize10 light-gray"><del>原价￥199</del></p>
+								<a href="html/home/shop_details.html"><button class="index-preferred-eat">免费试吃</button></a>
+								<a href="html/home/shop_result.html"><button class="index-preferred-pay">立即购买</button></a>
+							</div>
+
+						</div>
+						<div class="index-preferred-content" style="transform: translateZ(0px) translateX(0px) translateY(0px);">
+							<div class="index-preferred-content-pic">
+								<img class="pic" src="images/cbd.jpg" />
+							</div>
+							<div class="index-preferred-content-left">
+								<p class="index-preferred-nickname">小资坚果优选内蒙草原巴木旦</p>
+								<p class="index-preferred-price">暑期价<span class="dark-orage fontsize12">￥99</span></p>
+								<p class="fontsize10 light-gray index-preferred-yprice">原价￥199</p>
+								<a href="html/home/shop_details.html"><button class="index-preferred-eat">免费试吃</button></a>
+								<a href="html/home/shop_result.html"><button class="index-preferred-pay">立即购买</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--精选禽肉-->
+				<div class="index-preferred-inner">
+					<div class="index-preferred-layout">
+						<p class="index-preferred-title">精选禽肉</p>
+					</div>
+					<div class="page2-pic">
+						<img class="pic" src="images/icon_shouye_bge_.jpg" />
+					</div>
+					<!--<div class="index-preferred-shop">-->
+					<!--<div class="index-preferred-write-shape">
+						<div class="index-preferred-write-bg">
+							<h4 class="index-preferred-shop-title">小资特色<br>优选小吃大集合</h4>
+							<p class="index-preferred-shop-name">牛眼肉满199减100元！</p>
+							<ul class="index-preferred-shop-layout">
+								<li class="index-preferred-item">
+									<p>限时优惠</p>
+								</li>
+								<li class="index-preferred-item">
+									<p>满<br>立减</p>
+								</li>
+								<li class="index-preferred-item">
+									<p>进口优享</p>
+								</li>
+							</ul>
+						</div>
+					</div>-->
+					<!--</div>-->
+					<ul class="index-preferred-shop-center" id="indexitem">
+						<li class="index-preferred-shop-center-item">
+							<a href="html/home/shop_details.html">
+								<div class="page1-pic">
+									<img class="pic" src="images/icon_shouye_tuf.png" />
+								</div>
+								<p class="fontsize12 gray margintop5 ellipsis2 index-preferred-shop-center-name">秘制猪肉</p>
+								<p class="dark-orage fontsize14 margintop5 index-preferred-shop-center-price">￥90</p>
+							</a>
+						</li>
+						<li class="index-preferred-shop-center-item">
+							<a href="html/home/shop_details.html">
+								<div class="page1-pic">
+									<img class="pic" src="images/icon_shouye_tug.jpg" />
+								</div>
+								<p class="fontsize12 gray margintop5 ellipsis2  index-preferred-shop-center-name">内蒙肉干</p>
+								<p class="dark-orage fontsize14 margintop5 index-preferred-shop-center-price">￥145</p>
+							</a>
+						</li>
+						<li class="index-preferred-shop-center-item">
+							<a href="html/home/shop_details.html">
+								<div class="page1-pic">
+									<img class="pic" src="images/icon_shouye_tuh.png" />
+								</div>
+								<p class="fontsize12 gray margintop5 ellipsis2  index-preferred-shop-center-name">青藏大草原特产鲇鱼精选鱼仔</p>
+								<p class="dark-orage fontsize14 margintop5 index-preferred-shop-center-price">￥128</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<script src="js/mui.min.js"></script>
+			<script type="text/javascript" charset="utf-8">
+				mui.init();
+				//如果只是手机版，解决导航a标签不能跳转页面可以
+				mui('body').on('tap', 'a', function() {
+						window.top.location = this.href;
+					}
+
+				);
+				//如果还有电脑版的话，解决导航a标签不能跳转页面就要用
+				mui('body').on('click', 'a', function() {
+						window.top.location = this.href;
+					}
+
+				);
+			</script>
+	</body>
+
+</html>

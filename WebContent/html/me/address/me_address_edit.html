@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../../../css/index.css" />
+		<script type="text/javascript" src="../../../js/config.js" ></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--内容区-->
+			<ul class="edit-layout white-bj">
+				<li class="tel-item">
+					<p class="fontsize13 dark-gray item-nickname">收货人</p> <input type="text" oninput="if(value.length>15)value=value.slice(0,15)" placeholder="请输入姓名" class="fontsize14 dark-gray tel-input" v-model="username" /></li>
+				<li class="tel-item">
+					<p class="fontsize13 dark-gray item-nickname">联系方式</p> <input type="number" oninput="if(value.length>11)value=value.slice(0,11)" placeholder="请输入手机号码" class="fontsize14 dark-gray tel-input" v-model="tel" /></li>
+				<li class="tel-item">
+					<a class="edit-href" href="../../locposition/loc_position.html">
+						<p class="fontsize13 dark-gray item-nickname">所在地区</p>
+						<p class="fontsize12 dark-gray edit-area" id='cityResult3'></p> 
+						<span class="mui-icon mui-icon-arrowright fontsize16 light-gray ads-right-jt"></span>
+					</a>
+				</li>
+				<li class="edit-item car-shop-remarks-inner">
+					<p class="fontsize13 dark-gray item-nickname edit-dynm-ads">详细地址</p>
+					<textarea class="car-shop-remarks-right edit-right dark-gray fontsize12" placeholder="请补充详细地址，如门牌号/楼层号等" v-model="address"></textarea>
+				</li>
+			</ul>
+			<!--完成和修改-->
+			<div class="tel-bind">
+				<button class="big-btn white fontsize14">确认</button>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

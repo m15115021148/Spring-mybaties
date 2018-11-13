@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>结算</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../../js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="app" v-cloak>
+			<!--内容区-->
+			<div>
+				<!--收货地址-->
+				<div class="shop-result-address">
+					<a href="../me/address/me_address.html">
+						<p class="shop-result-ads-userinfo">
+							<span class="shop-result-asd-name dark-gray fontsize15">小蜜蜂</span>
+							<span class="gray fontsize12">15107476430</span>
+						</p>
+						<div class="shop-result-asd-detail">
+							<img class="shop-result-ads-pic" src="../../images/icon_shouye_dizhi.png" />
+							<p class="shop-result-asd-info gray fontsize12 ellipsis2">省岳麓区旺龙路岳麓大道口新城科技园</p>
+						</div>
+						<p class="shop-result-asd-jinru">
+							<span class="mui-icon mui-icon-arrowright rightjt"></span>
+						</p>
+					</a>
+				</div>
+				<!--无收货地址-->
+				<div class="shop-result-address" style="display: none;">
+					<a href="#">
+						<p class="shop-result-ads-inner">
+							<span class="dark-gray fontsize14">请先添加收货地址</span>
+							<span class="shop-result-ads-inner-right mui-icon mui-icon-arrowright rightjt"></span>
+						</p>
+					</a>
+				</div>
+				<!--商家商品信息-->
+				<div class="car-shop-info white-bj">
+					<ul class="car-shop-info-layout">
+						<li class="car-shop-info-item">
+							<a href="#">
+								<div class="car-shop-info-img">
+									<img src="../../images/icon_shouye_bge_.jpg">
+								</div>
+								<p class="car-shop-info-name gray fontsize12">野生乌鸡</p>
+								<p class="car-shop-info-money dark-orage fontsize10">
+									￥<span class="fontsize12">120</span>
+								</p>
+								<p class="car-shop-info-num fontsize12 light-gray">x&nbsp;20</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!--备注-->
+				<div class="car-shop-remarks-inner">
+					<p class="car-shop-remarks-left dark-gray fontsize14">备注</p>
+					<textarea id="remarkText" class="car-shop-remarks-right dark-gray fontsize12" onkeyup="checkLen(this,100)" placeholder="有要求就说出来哦..."></textarea>
+				</div>
+				<!--合计-->
+				<div class="car-shop-heji white-bj">
+					<div class="car-shop-info-inner">
+						<span class="dark-orage fontsize14">合计</span> <span class="price-right gray fontsize12">￥163</span></span>
+					</div>
+					<div class="car-shop-info-inner">
+						<span class="dark-orage fontsize14">优惠</span> <span class="price-right gray fontsize12">￥63</span></span>
+					</div>
+					<div class="car-shop-info-inner xiaoji">
+						<div class="price-right dark-gray fontsize14">
+							实付 <span class="dark-orage fontsize12">￥</span><span class="dark-orage fontsize15">100</span>
+						</div>
+					</div>
+				</div>
+				<!--立即支付-->
+				<div class="car-shop-pay">
+					<a href="#"><button class="big-btn orange-bj white fontsize14">立即支付</button></a>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

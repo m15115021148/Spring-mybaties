@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的试吃</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../../js/config.js" ></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--搜索商品-->
+			<ul class="me-seat">
+				<li class="me-seat-item">
+					<a class="me-seat-href" href="me_seat_share.html">
+						<div class="me-seat-pic">
+							<img class="pic" src="../../../images/banner4.jpg">
+						</div>
+						<p class="fontsize15 dark-gray me-seat-name ellipsis2">有机天山鸡有机天山鸡有机天山鸡有机天山鸡有机天山鸡有机天山鸡有机天山鸡有机天山鸡有机天山鸡</p>
+						<del class="fontsize12 gray me-seat-price">市场价￥100</del>
+						<button class="fontsize12 me-seat-cy">还差3人</button>
+					</a>
+				</li>
+				
+			</ul>
+			<a class="click-loading" style="display: none;">点击加载更多</a>
+			<!--缺省页-->
+			<div class="default-pic-layout" style="display: none;">
+				<p class="default-pager-text">你还没有试吃过哦</p> <br />
+				<img class="default-pic" src="../../../images/icon_wushichi.png" />
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

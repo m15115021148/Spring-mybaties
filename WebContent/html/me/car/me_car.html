@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../../css/index.css" rel="stylesheet" />
+		<script type="text/javascript" src="../../../js/config.js"></script>
+		<style>
+			[v-cloak] {
+				/*display: none;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<!--缺省页-->
+			<div class="default-pic-layout" style="display: none;">
+				<p class="default-pager-text">您还没有逛过哦</p><br />
+				<img class="default-pic" src="../../../images/icon_wugouwuche.png" />
+			</div>
+			<!--编辑/完成按钮-->
+			<div class="cart-top">
+				<button class="cart-top-font lineheight40 dark-orage fontsize14">编辑</button>
+				<button class="cart-top-font lineheight40 dark-orage fontsize14" style="display: none;">完成</button>
+			</div>
+			<!--内容-->
+			<div class="cart-main">
+				<div class="cart-main-each">
+					<div class="cart-main-each-shop mui-checkbox">
+						<input class="cart-main-each-shop-checkbox" type="checkbox">
+						<span class="cart-main-each-shop-font fontsize14 dark-gray">
+						<a class="dark-gray">火鸡</a></span>
+					</div>
+					<ul class="cart-main-inner">
+						<li class="cart-main-list mui-checkbox"><input class="cart-main-list-left" type="checkbox">
+							<a class="cart-main-list-right">
+								<div class="page5_pic">
+									<img class="pic" src="../../../images/banner4.jpg">
+								</div>
+								<p class="page5_title gray fontsize12">11313131</p>
+								<p class="page5_money red fontsize10">
+									￥<span class="fontsize14">100</span>/件
+								</p>
+								<p class="page5_shu light-gray fontsize12">
+									×<span>30</span>
+								</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--内容之编辑页面-->
+			<div class="cart-main" style="display: none;">
+				<div class="cart-main-each">
+					<div class="cart-main-each-shop mui-checkbox">
+						<input class="cart-main-each-shop-checkbox" name="checkbox" type="checkbox">
+						<a>
+							<span class="cart-main-each-shop-font fontsize14 dark-gray">火鸡</span>
+						</a>
+					</div>
+					<ul class="cart-main-inner">
+						<li class="cart-main-list mui-checkbox"><input class="cart-main-list-left" name="checkbox" type="checkbox">
+							<div class="cart-main-list-right">
+								<div class="page5_pic">
+									<img class="pic" src="../../../images/banner4.jpg">
+								</div>
+								<div class="page6_edit_shuliang mui-numbox">
+									<button class="cartcut cartsym mui-btn mui-btn-numbox-minus dark-orage" type="button">-</button>
+									<input id="test" class="cartnum mui-input-numbox" type="number"/>
+									<button class="cartadd cartsym mui-btn mui-btn-numbox-plus dark-orage" type="button" >+</button>
+								</div>
+								<p class="page6_money dark-orage fontsize10">
+									￥<span class="fontsize14">20</span>/件
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!--底部结算-->
+			<div class="footer-ettlement">
+				<div class="footer-ettlement-left">
+					<p class="footer-ettlement-left-no mui-checkbox">
+						<input class="footer-ettlement-left-no-checkbox" name="allCheckbox" value="Item1" type="checkbox">
+						<span class="footer-ettlement-left-font fontsize12 light-gray">全选</span>
+					</p>
+				</div>
+				<div class="footer-ettlement-right">
+					<p class="footer-ettlement-right-button fontsize15 orange-bj ">
+						<a href="../../home/shop_result.html" class="index-selling-main-a fontsize15 white me-href">结算</a>
+					</p>
+					<div class="footer-ettlement-right-font">
+						<p class="footer-ettlement-right-font-top dark-orage fontsize16"><span class="fontsize12">￥</span>20</p>
+						<p class="footer-ettlement-right-font-bot light-gray fontsize10" style="display:none">免费配送</p>
+					</div>
+				</div>
+			</div>
+			<!--底部删除-->
+			<div class="footer-ettlement" style="display: none;">
+				<div class="footer-ettlement-left">
+					<p class="footer-ettlement-left-no mui-checkbox">
+						<input class="footer-ettlement-left-no-checkbox" name="allCheckbox" value="Item1" type="checkbox">
+						<span class="footer-ettlement-left-font fontsize12 light-gray">全选</span>
+					</p>
+				</div>
+				<div class="footer-ettlement-right">
+					<p class="footer-ettlement-right-button fontsize15 qian-gray">删除</p>
+				</div>
+			</div>
+		</div>
+		<script src="../../../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>
