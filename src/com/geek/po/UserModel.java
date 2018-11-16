@@ -1,7 +1,7 @@
 package com.geek.po;
 
 public class UserModel {
-	private String userID;
+	private int userID;
 	private String name;
 	private String password;
 	private String age;
@@ -16,11 +16,11 @@ public class UserModel {
 	private String result;
 	private String errorMsg;
 
-	public String getUserID() {
+	public int getUserID() {
 		return userID;
 	}
 
-	public void setUserID(String userID) {
+	public void setUserID(int userID) {
 		this.userID = userID;
 	}
 

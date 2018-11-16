@@ -1,26 +1,27 @@
 package com.geek.po;
 
 public class LocationModel {
-	private String locationID;
-	private String lat;
-	private String lng;
+	private int locationID;
+	private double lat;
+	private double lng;
 	private String address;
-	public String getLocationID() {
+	
+	public int getLocationID() {
 		return locationID;
 	}
-	public void setLocationID(String locationID) {
+	public void setLocationID(int locationID) {
 		this.locationID = locationID;
 	}
-	public String getLat() {
+	public double getLat() {
 		return lat;
 	}
-	public void setLat(String lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
-	public String getLng() {
+	public double getLng() {
 		return lng;
 	}
-	public void setLng(String lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
 	public String getAddress() {
@@ -29,6 +30,7 @@ public class LocationModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 	
 	
 }

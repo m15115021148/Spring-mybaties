@@ -17,7 +17,7 @@ public class UserService implements UserDao{
 		return userDao.loginUser(user);
 	}
 
-	public UserModel findUserById(String userID) {
+	public UserModel findUserById(int userID) {
 		return userDao.findUserById(userID);
 	}
 
@@ -29,12 +29,12 @@ public class UserService implements UserDao{
 		userDao.registerUser(user);
 	}
 
-	public void uploadHeader(String userID, String photo) {
+	public void uploadHeader(int userID, String photo) {
 		userDao.uploadHeader(userID, photo);
 		
 	}
 
-	public int updateUserInfo(String userID, String sex, String age,
+	public int updateUserInfo(int userID, String sex, String age,
 			String telphone, String email) {
 		return userDao.updateUserInfo(userID, sex, age, telphone, email);
 	}

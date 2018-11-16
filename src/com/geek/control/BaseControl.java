@@ -40,7 +40,7 @@ public class BaseControl {
 	private AccountDao accountDao;
 	// 头像路径
 	private String userHeaderPath = "/upload/photo/";
-	/**账单图片保存路径*/
+	/** 账单图片保存路径 */
 //	private String accountImgPath = "/upload/account/";
 
 	/**
@@ -52,8 +52,7 @@ public class BaseControl {
 	 * @throws IOException
 	 */
 	@RequestMapping("/dbAction_register")
-	public void register(HttpServletRequest request,
-			HttpServletResponse response, Model model) throws IOException {
+	public void register(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 		String name = request.getParameter("name");
@@ -103,18 +102,15 @@ public class BaseControl {
 		Map<String, Object> map = new HashMap<String, Object>();
 		UserModel model = userDao.findUserByUserName(name);
 		if (model != null) {
-			if (name.equals(model.getName())) {
-				if (password.equals(model.getPassword())) {
+			if (name.equalsIgnoreCase(model.getName())) {
+				if (password.equalsIgnoreCase(model.getPassword())) {
 					map.put("userID", model.getUserID());
 					map.put("name", model.getName());
 					map.put("age", model.getAge() == null ? "" : model.getAge());
-					map.put("sex", model.getSex() == null ? "" : model.getSex().equals("1")?"男":"女");
-					map.put("address",
-							model.getAddress() == null ? "" : model
-									.getAddress());
+					map.put("sex", model.getSex() == null ? "" : model.getSex().equals("1") ? "男" : "女");
+					map.put("address", model.getAddress() == null ? "" : model.getAddress());
 					map.put("telphone", model.getTelphone());
-					map.put("photo",
-							HostUtil.getHostIp(request) + model.getPhoto());
+					map.put("photo", HostUtil.getHostIp(request) + model.getPhoto());
 					map.put("result", 1);
 				} else {
 					map.put("result", 0);
@@ -136,13 +132,12 @@ public class BaseControl {
 	 */
 	@RequestMapping(value = "/dbAction_uploadHeader", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public Object uploadHeader(String userID,
-			@RequestParam(required = false) MultipartFile img,
+	public Object uploadHeader(int userID, @RequestParam(required = false) MultipartFile img,
 			HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		if(userID==null||"".equals(userID)){
+		if (userID <= 0) {
 			map.put("result", 0);
-			map.put("errorMsg","用户id不能为空");
+			map.put("errorMsg", "用户id不存在");
 			return map;
 		}
 		try {
@@ -154,16 +149,13 @@ public class BaseControl {
 			}
 
 			String fileName = StringUtil.getUUID();
-			int result = FileUtil.uploadImage(img, userHeaderPath, fileName,
-					request);
-			System.out.println(result);
+			int result = FileUtil.uploadImage(img, userHeaderPath, fileName, request);
 			if (result != 0) {
 				map.put("result", 0);
 				map.put("errorMsg", "图片上传失败");
 				return map;
 			}
-			String type = img.getOriginalFilename().substring(
-					img.getOriginalFilename().lastIndexOf("."));
+			String type = img.getOriginalFilename().substring(img.getOriginalFilename().lastIndexOf("."));
 			userModel.setPhoto(userHeaderPath + fileName + type);
 			userDao.uploadHeader(userID, userModel.getPhoto());
 			map.put("result", 1);
@@ -181,17 +173,31 @@ public class BaseControl {
 	 */
 	@RequestMapping(value = "/dbAction_getKinds", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public List<Map<String, Object>> getKind() {
+	public Object getKind() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		List<KindModel> u = accountDao.getKind();
+		
+		if (u == null) {
+			map.put("result", 0);
+			map.put("errorMsg", "数据异常");
+			map.put("data", list);
+			return map;
+		}
 
 		for (KindModel model : u) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("kindID", model.getKindID());
-			map.put("kind", model.getKind());
-			list.add(map);
+			Map<String, Object> m = new HashMap<String, Object>();
+			m.put("kindID", model.getKindID());
+			m.put("kind", model.getKind());
+			list.add(m);
 		}
-		return list;
+		
+		map.put("result", 1);
+		map.put("errorMsg", "");
+		map.put("data", list);
+		
+		return map;
 	}
 
 	/**
@@ -199,16 +205,16 @@ public class BaseControl {
 	 */
 	@RequestMapping(value = "/dbAction_uploadAccount", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public Object upLoadAccount(String userID, String type, String kind,
-			String money, String note, String time,String lat,String lng,String address) {
+	public Object upLoadAccount(int userID, int type, String kind, double money, String note, String time,
+			double lat, double lng, String address) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		
+
 		LocationModel l = new LocationModel();
 		l.setAddress(address);
 		l.setLat(lat);
 		l.setLng(lng);
-		int lRow = accountDao.insertLocation(l);//上传位置信息
-		if(lRow ==1){
+		int lRow = accountDao.insertLocation(l);// 上传位置信息
+		if (lRow == 1) {
 			AccountModel model = new AccountModel();
 			model.setUserID(userID);
 			model.setTime(time);
@@ -216,8 +222,8 @@ public class BaseControl {
 			model.setKind(kind);
 			model.setMoney(money);
 			model.setNote(note);
-			model.setLocationID(l.getLocationID());//得到上传位置的id号  保存起来
-			
+			model.setLocationID(l.getLocationID());// 得到上传位置的id号 保存起来
+
 			int raw = accountDao.upLoadAccount(model);
 			if (raw == 1) {
 				map.put("result", 1);
@@ -226,11 +232,11 @@ public class BaseControl {
 				map.put("result", 0);
 				map.put("errorMsg", "上传失败");
 			}
-		}else {
+		} else {
 			map.put("result", 0);
 			map.put("errorMsg", "上传失败");
 		}
-		
+
 		return map;
 	}
 
@@ -239,67 +245,84 @@ public class BaseControl {
 	 */
 	@RequestMapping(value = "/dbAction_getAccountList", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public List<Map<String, Object>> getAccountsListData(String userID,
-			String type, String kind, String startTime, String endTime,String note,
-			String page, HttpServletRequest request) {
+	public Object getAccountsListData(int userID, String type, String kind, String startTime,
+			String endTime, String note, int page, HttpServletRequest request) {
+		Map<String, Object> map = new HashMap<>();
+		
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		List<AccountModel> u = accountDao.getAccountList(userID, type, kind,
-				startTime, endTime,note, page);
+		
+		List<AccountModel> u = accountDao.getAccountList(userID, type, kind, startTime, endTime, note, page);
+		
+		if (u == null) {
+			map.put("result", 0);
+			map.put("errorMsg", "暂无数据");
+			map.put("data", list);
+			return map;
+		}
 		for (AccountModel model : u) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("userID", model.getUserID());
-			map.put("type", model.getType());
-			map.put("money", model.getMoney());
-			map.put("kind", model.getKind());
-			map.put("note", model.getNote());
-			map.put("time", model.getTime());
-			map.put("accountID", model.getAccountID());
-			map.put("lat", model.getLat());
-			map.put("lng", model.getLng());
-			map.put("address", model.getAddress());
+			Map<String, Object> m = new HashMap<String, Object>();
+			m.put("userID", model.getUserID());
+			m.put("type", model.getType());
+			m.put("money", model.getMoney());
+			m.put("kind", model.getKind());
+			m.put("note", model.getNote());
+			m.put("time", model.getTime());
+			m.put("accountID", model.getAccountID());
+			m.put("lat", model.getLat());
+			m.put("lng", model.getLng());
+			m.put("address", model.getAddress());
 			if (model.getImg() == null) {
-				map.put("img", "");
+				m.put("img", "");
 			} else {
 				String img = "";
 				String[] split = model.getImg().split(";");
 				for (String str : split) {
 					img = img + HostUtil.getHostIp(request) + str + ";";
 				}
-				map.put("img", img);
+				m.put("img", img);
 			}
 
-			list.add(map);
+			list.add(m);
 		}
 		
-		return list;
+		map.put("result", 1);
+		map.put("errorMsg", "");
+		map.put("data", list);
+
+		return map;
 	}
-	
+
 	/**
 	 * 修改账单备注信息
 	 */
 	@RequestMapping(value = "/dbAction_updateAccountNote", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public Object updateAccountNote(String accountID, String userID, String note) {
+	public Object updateAccountNote(int accountID, int userID, String note) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		if(userID==null||"".equals(userID)){
+		if (accountID <=0 ) {
 			map.put("result", 0);
-			map.put("errorMsg","用户id不能为空");
+			map.put("errorMsg", "账单不存在");
 			return map;
 		}
-		if("".equals(note)||"null".equals(note)){
+		if (userID <=0 ) {
+			map.put("result", 0);
+			map.put("errorMsg", "用户不存在");
+			return map;
+		}
+		if ("".equals(note) || "null".equals(note)) {
 			map.put("result", 0);
 			map.put("errorMsg", "修改失败");
 			return map;
 		}
 		int row = accountDao.updateNote(accountID, userID, note);
-		if(row == 1){
+		if (row == 1) {
 			map.put("result", 1);
 			map.put("errorMsg", "");
-		}else{
+		} else {
 			map.put("result", 0);
 			map.put("errorMsg", "修改失败");
 		}
-		
+
 		return map;
 	}
 
@@ -308,37 +331,38 @@ public class BaseControl {
 	 */
 	@RequestMapping(value = "/dbAction_getPieData", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public List<Map<String, Object>> getPieData(String userID, String type, String kind,
-			String startTime, String endTime,String note) {
+	public List<Map<String, Object>> getPieData(int userID, String type, String kind, String startTime,
+			String endTime, String note) {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-		List<AccountModel> m = accountDao.getPieData(userID, type, kind, startTime, endTime,note);
-		for(AccountModel model:m){
+		List<AccountModel> m = accountDao.getPieData(userID, type, kind, startTime, endTime, note);
+		for (AccountModel model : m) {
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("type", model.getType());
 			map.put("kind", model.getKind());
-			map.put("money",model.getMoney());
+			map.put("money", model.getMoney());
 			list.add(map);
 		}
 		return list;
 	}
-	
+
 	/**
 	 * 线形图
 	 */
 	@RequestMapping(value = "/dbAction_getLineData", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public List<Map<String, Object>> getlineData(String userID, String type, String kind,String startTime, String endTime,String note) {				
-		List<Map<String, Object>> bList = new ArrayList<Map<String, Object>>();		
+	public List<Map<String, Object>> getlineData(int userID, String type, String kind, String startTime,
+			String endTime, String note) {
+		List<Map<String, Object>> bList = new ArrayList<Map<String, Object>>();
 		List<AccountModel> accountList = new ArrayList<AccountModel>();
-		
-		if(kind==null||"".equals(kind)){
-			List<String> kindAll = accountDao.getKindAll(userID, type, kind, startTime, endTime,note);			
-			for(String k : kindAll){
+
+		if (kind == null || "".equals(kind)) {
+			List<String> kindAll = accountDao.getKindAll(userID, type, kind, startTime, endTime, note);
+			for (String k : kindAll) {
 				accountList.clear();
 				List<Map<String, Object>> sList = new ArrayList<Map<String, Object>>();
-				Map<String, Object> map = new HashMap<String, Object>();	
-				accountList = accountDao.getLineData(userID, type, k, startTime, endTime,note);
-				for(AccountModel model:accountList){
+				Map<String, Object> map = new HashMap<String, Object>();
+				accountList = accountDao.getLineData(userID, type, k, startTime, endTime, note);
+				for (AccountModel model : accountList) {
 					Map<String, Object> m = new HashMap<String, Object>();
 					m.put("time", model.getTime().split(" ")[0]);
 					m.put("money", model.getMoney());
@@ -348,59 +372,58 @@ public class BaseControl {
 				map.put("value", sList);
 				bList.add(map);
 			}
-					
-		}else{
+
+		} else {
 			accountList.clear();
-			List<Map<String, Object>> sList = new ArrayList<Map<String, Object>>();			
+			List<Map<String, Object>> sList = new ArrayList<Map<String, Object>>();
 			Map<String, Object> map = new HashMap<String, Object>();
-			accountList = accountDao.getLineData(userID, type, kind, startTime, endTime,note);
-			for(AccountModel model:accountList){
+			accountList = accountDao.getLineData(userID, type, kind, startTime, endTime, note);
+			for (AccountModel model : accountList) {
 				Map<String, Object> m = new HashMap<String, Object>();
 				m.put("time", model.getTime().split(" ")[0]);
 				m.put("money", model.getMoney());
 				sList.add(m);
 			}
 			map.put("kind", kind);
-			map.put("value", sList);		
+			map.put("value", sList);
 			bList.add(map);
-		}	
-		
+		}
+
 		return bList;
 	}
-	
+
 	/**
 	 * 修改个人信息
 	 */
 	@RequestMapping(value = "/dbAction_updateUserInfo", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public Object updateUserInfo(String userID, String sex, String age,String telphone,String email) {
-		Map<String, Object> map = new HashMap<String, Object>();		
-		if(userID==null||"".equals(userID)){
+	public Object updateUserInfo(int userID, String sex, String age, String telphone, String email) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (userID <= 0) {
 			map.put("result", 0);
-			map.put("errorMsg","用户id不能为空");
+			map.put("errorMsg", "用户id不存在");
 			return map;
 		}
 		int row = userDao.updateUserInfo(userID, sex, age, telphone, email);
-		if(row ==1){
+		if (row == 1) {
 			map.put("result", 1);
-			map.put("errorMsg","");
-		}else{
+			map.put("errorMsg", "");
+		} else {
 			map.put("result", 0);
-			map.put("errorMsg","修改失败");
+			map.put("errorMsg", "修改失败");
 		}
-		
+
 		return map;
 	}
-	
+
 	/**
 	 * 
 	 */
 	@RequestMapping("/showImage")
-	public String showImge(HttpServletRequest request,
-			HttpServletResponse response,Model model) {
+	public String showImge(HttpServletRequest request, HttpServletResponse response, Model model) {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
-		
+
 		return "showImg";
 	}
 

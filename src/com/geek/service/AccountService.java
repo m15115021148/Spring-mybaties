@@ -20,8 +20,8 @@ public class AccountService implements AccountDao{
 		return dao.upLoadAccount(model);
 	}
 
-	public List<AccountModel> getAccountList(String userID, String type,
-			String kindID, String startTime, String endTime, String note ,String page) {
+	public List<AccountModel> getAccountList(int userID, String type,
+			String kindID, String startTime, String endTime, String note ,int page) {
 		return dao.getAccountList(userID, type, kindID, startTime, endTime,note, page);
 	}
 
@@ -33,17 +33,17 @@ public class AccountService implements AccountDao{
 		return dao.findKindID(kindID);
 	}
 
-	public String getStatisticsMoney(String userID, String type, String kind,
-			String startTime, String endTime, String page) {
+	public String getStatisticsMoney(int userID, String type, String kind,
+			String startTime, String endTime, int page) {
 		return dao.getStatisticsMoney(userID, type, kind, startTime, endTime, page);
 	}
 
-	public List<AccountModel> getPieData(String userID, String type, String kind,
+	public List<AccountModel> getPieData(int userID, String type, String kind,
 			String startTime, String endTime,String note) {
 		return dao.getPieData(userID, type, kind, startTime, endTime,note);
 	}
 
-	public int updateNote(String id , String userID, String note) {
+	public int updateNote(int id , int userID, String note) {
 		return dao.updateNote(id ,userID, note);
 	}
 
@@ -51,12 +51,12 @@ public class AccountService implements AccountDao{
 		return dao.insertLocation(model);
 	}
 
-	public List<AccountModel> getLineData(String userID, String type,
+	public List<AccountModel> getLineData(int userID, String type,
 			String kind, String startTime, String endTime,String note) {
 		return dao.getLineData(userID, type, kind, startTime, endTime,note);
 	}
 
-	public List<String> getKindAll(String userID, String type, String kind,
+	public List<String> getKindAll(int userID, String type, String kind,
 			String startTime, String endTime,String note) {
 		return dao.getKindAll(userID, type, kind, startTime, endTime,note);
 	}
