@@ -3,7 +3,7 @@ package com.geek.po;
 public class AccountModel {
 	private int accountID;//数据库id
 	private int userID;
-	private int type;
+	private String type;
 	private double money;
 	private String kind;
 	private String note;
@@ -25,10 +25,11 @@ public class AccountModel {
 	public void setUserID(int userID) {
 		this.userID = userID;
 	}
-	public int getType() {
+	
+	public String getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 	public double getMoney() {

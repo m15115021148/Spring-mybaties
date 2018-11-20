@@ -16,7 +16,7 @@
 	<!-- 插入位置信息 -->
 	<insert id="insertLocation" parameterType="com.geek.po.LocationModel">
 		<!-- 获取主键id -->
-		<selectKey resultType="java.lang.String" keyProperty="locationID">
+		<selectKey resultType="java.lang.Integer" keyProperty="locationID">
 			SELECT LAST_INSERT_ID()
 		</selectKey>
 		insert into location(lat,lng,address) values(#{lat},#{lng},#{address})

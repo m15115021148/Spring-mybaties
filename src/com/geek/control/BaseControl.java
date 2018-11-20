@@ -205,7 +205,7 @@ public class BaseControl {
 	 */
 	@RequestMapping(value = "/dbAction_uploadAccount", produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public Object upLoadAccount(int userID, int type, String kind, double money, String note, String time,
+	public Object upLoadAccount(int userID, String type, String kind, double money, String note, String time,
 			double lat, double lng, String address) {
 		Map<String, Object> map = new HashMap<String, Object>();
 
