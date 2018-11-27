@@ -190,6 +190,7 @@ public class BaseControl {
 			Map<String, Object> m = new HashMap<String, Object>();
 			m.put("kindID", model.getKindID());
 			m.put("kind", model.getKind());
+			m.put("type", model.getType());
 			list.add(m);
 		}
 		
